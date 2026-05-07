@@ -1,23 +1,25 @@
 package com.drms.disaster_relief.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "auth")
 public class Auth {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID authId;
 
+    @Column(unique = true, nullable = false)
     private String loginIdentifier;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private String role;
 
     private String entityType;
@@ -28,7 +30,13 @@ public class Auth {
 
     private LocalDateTime lastLoginAt;
 
-    private LocalDateTime createdAt;
+    @Column(updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt = LocalDateTime.now();
+
+    @PreUpdate
+    protected void onUpdate() {    // this is for auto update
+        updatedAt = LocalDateTime.now();
+    }
 }
