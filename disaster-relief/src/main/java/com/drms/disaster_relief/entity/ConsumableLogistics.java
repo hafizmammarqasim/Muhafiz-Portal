@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Entity
+//@Entity
 //@Table(name = "consumable_logistics")
 public class ConsumableLogistics extends Logistics {
     private int quantity;

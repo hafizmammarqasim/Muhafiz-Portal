@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Entity
+//@Entity
 //@Table(name = "logistics")
 @Inheritance(strategy = InheritanceType.JOINED) // This is required for inheritance
 public class Logistics {

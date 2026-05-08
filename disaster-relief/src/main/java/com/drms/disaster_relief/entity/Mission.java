@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@Entity
+//@Entity
 public class Mission {
     @Id
     @GeneratedValue
