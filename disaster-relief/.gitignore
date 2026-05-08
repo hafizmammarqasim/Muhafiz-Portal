@@ -37,3 +37,4 @@ src/main/resources/application.properties
 # Ignore IntelliJ IDEA project files
 out/
 gen/
+.idea/
